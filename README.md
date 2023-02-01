@@ -31,3 +31,7 @@ O comando **docker ps** tem como propósito listar todos os container que estão
 ## Comando - **docker ps -a**
 
 O comando **docker ps -a** tem como propósito listar todos os container que estejam inativos ou em execução.
+
+## Comando - **docker stop 2d5354ad6185**
+
+O comando **docker stop 2d5354ad6185** tem como propósito para a execução de um container, neste caso o container com id do container **2d5354ad6185**. Outra forma de executar este comando seria no lugar do **id do container** passar o **nome do container**
