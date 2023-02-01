@@ -27,3 +27,7 @@ Lembrando que os parametros **-p** e  **-d** são opcionais.
 ## Comando - **docker ps**
 
 O comando **docker ps** tem como propósito listar todos os container que estão em execução.
+
+## Comando - **docker ps -a**
+
+O comando **docker ps -a** tem como propósito listar todos os container que estejam inativos ou em execução.
