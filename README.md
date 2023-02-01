@@ -34,4 +34,8 @@ O comando **docker ps -a** tem como propósito listar todos os container que est
 
 ## Comando - **docker stop 2d5354ad6185**
 
-O comando **docker stop 2d5354ad6185** tem como propósito para a execução de um container, neste caso o container com id do container **2d5354ad6185**. Outra forma de executar este comando seria no lugar do **id do container** passar o **nome do container**
+O comando **docker stop 2d5354ad6185** tem como propósito parar a execução de um container, neste caso o container com id **2d5354ad6185**. Outra forma de executar este comando seria no lugar do **id do container** passar o **nome do container**
+
+## Comando - **docker rm 2d5354ad6185 -f**
+
+O comando **docker rm 2d5354ad6185** tem como propósito remover um container, neste caso o container com id **2d5354ad6185**. Outra forma de executar este comando seria no lugar do **id do container** passar o **nome do container**. Contudo, é possivel que ocorra um erro dizendo que o container está em execução e por isso não seria possível remove-lo e caso ainda queira remove-lo passe o parametro **-f** (force) para forçar a remoção independente da circunstancia.
