@@ -17,3 +17,9 @@ Lembrando que os parametros **-it** e  **--rm** são opcionais.
 ## Comando - **docker start ubuntu**
 
 O comando **docker start ubuntu** executa o ubuntu e consequentemente irá finaliza-lo, pois não existem processos a serem executados internamente nesta imagem.
+
+## Comando - **docker run -d -p 8080:80 nginx**
+
+O comando **docker run -d -p 8080:80 nginx** tem como propósito executar o **nginx**. Contudo, a imagem do **nginx**, por ser um serviço, sempre irá ficar travado em execução e consequentemente seu terminal irá ficar travado. Para evitar que o processo fique travado é possível utilizar o parametro **-d** (detached) para executar o container em background. Além disso, pelo fato do **nginx** ser um serviço internamente no container é utilizada a **porta 80**, mas quando for tentar acessar externamente (via browser) este serviço utilizando esta porta não irá conseguir acessar o serviço. Para suprir este cenário o docker tem um parametro **-p** no qual é especificado a porta externa ao container, ao qual será redirecionado o serviço, seguido dois pontos e posteriormente a porta interna do container. Neste caso está redirecionando a **porta 80** do **nginx** para a **porta 8080** da maquina onde está sendo executado o docker, podendo assim ser acessado utilizando a url http://localhost:8080.
+
+Lembrando que os parametros **-p** e  **-d** são opcionais.
