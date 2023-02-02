@@ -18,9 +18,9 @@ O comando **docker start ubuntu** executa o ubuntu e consequentemente irá final
 
 ## Comando - **docker run --name nginx -d -p 8080:80 nginx**
 
-O comando **docker run --name nginx -d -p 8080:80 nginx** tem como propósito executar o **nginx**. Contudo, a imagem do **nginx**, por ser um serviço, sempre irá ficar travado em execução e consequentemente seu terminal irá ficar travado. Para evitar que o processo fique travado é possível utilizar o parametro **-d** (detached) para executar o container em background. Além disso, pelo fato do **nginx** ser um serviço internamente no container é utilizada a **porta 80**, mas quando for tentar acessar externamente (via browser) este serviço utilizando esta porta não irá conseguir acessar o serviço. Para suprir este cenário o docker tem um parametro **-p** no qual é especificado a porta externa ao container, ao qual será redirecionado o serviço, seguido dois pontos e posteriormente a porta interna do container. Neste caso está redirecionando a **porta 80** do **nginx** para a **porta 8080** da maquina onde está sendo executado o docker, podendo assim ser acessado utilizando a url http://localhost:8080.
+O comando **docker run --name nginx -d -p 8080:80 nginx** tem como propósito executar o **nginx**. Contudo, a imagem do **nginx**, por ser um serviço, sempre irá ficar travado em execução e consequentemente seu terminal irá ficar travado. Para evitar que o processo fique travado é possível utilizar o parametro **-d** (detached) para executar o container em background. Além disso, pelo fato do **nginx** ser um serviço internamente no container é utilizada a **porta 80**, mas quando for tentar acessar externamente (via browser) este serviço utilizando esta porta não irá conseguir acessar o serviço. Para suprir este cenário o docker tem um parametro **-p** no qual é especificado a porta externa ao container, ao qual será redirecionado o serviço, seguido dois pontos e posteriormente a porta interna do container. Neste caso está redirecionando a **porta 80** do **nginx** para a **porta 8080** da maquina onde está sendo executado o docker, podendo assim ser acessado utilizando a url http://localhost:8080. Outra coisa que é possível fazer por meio do parametro **--name** é especificar um nome para o container, no caso **nginx**, para facilitar a manipulação.
 
-Lembrando que os parametros **-p** e  **-d** são opcionais.
+Lembrando que os parametros **-p**, **-d** e **--name** são opcionais.
 
 ## Comando - **docker ps**
 
@@ -37,3 +37,11 @@ O comando **docker stop 2d5354ad6185** tem como propósito parar a execução de
 ## Comando - **docker rm 2d5354ad6185 -f**
 
 O comando **docker rm 2d5354ad6185** tem como propósito remover um container, neste caso o container com id **2d5354ad6185**. Outra forma de executar este comando seria no lugar do **id do container** passar o **nome do container**. Contudo, é possivel que ocorra um erro dizendo que o container está em execução e por isso não seria possível remove-lo e caso ainda queira remove-lo passe o parametro **-f** (force) para forçar a remoção independente da circunstancia.
+
+## Comando - **docker exec nginx ls**
+
+O comando **docker exec nginx ls** só é possível execula-lo em um container em execução e seu propósito consiste em executar comandos dentro do container. Neste exemplo é executado o comando **ls** dentro do container ao qual o **nome** do container é **nginx**.
+
+## Comando - **docker exec -it nginx bash**
+
+O comando **docker exec nginx ls** só é possível execula-lo em um container em execução e seu propósito consiste em executar comandos dentro do container. Neste exemplo é executado o comando **bash** dentro do container ao qual o **nome** do container é **nginx**. Além disso, é importante colocar, especificamente neste caso, o **-it** para conseguir interagir com o **bash** dentro do container.
