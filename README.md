@@ -55,3 +55,23 @@ Ps.: O comando **pwd** lista o diretório que o terminal está apontando no mome
 ## Comando - **docker run -d --name nginx -p 8080:80 --mount type=bind,source="$(pwd)"/html,target=/usr/share/nginx/html nginx**
 
 Este comando produz basicamente o "mesmo" resultado que o comando de com ta tag **-v**.Contudo, a única diferença é que os repositórios referenciados devem obrigatóriamente existirem. Neste comando o **-v** é substituido pelo **--mount**, mas além disso é necessário setar explicitado o tipo de montagem a **source**, que seria o diretório local, e o **target** que seria o diretório do container.
+
+## Comando - **docker volume create myvolume**
+
+O comando **docker volume create myvolume** tem como propósito criar um volume local.
+
+## Comando - **podman volume ls**
+
+O comando **podman volume ls** tem como propósito listar todos os volumes.
+
+## Comando - **docker volume inspect myvolume**
+
+O comando **docker volume inspect myvolume** tem como propósito apresentar informações específicas do **myvolume**, tais como: nome, data de criação, local onde foi montado, escopo, entre outros.
+
+## Comando - **docker run --name nginx -d --mount type=volume,source=myvolume,target=/app nginx**
+
+O comando **docker run --name nginx -d --mount type=volume,source=myvolume,target=/app nginx** tem como propósito criar um container apontando a pasta **/app** para o volume **myvolume**. Neste caso, quando é utilizado o **--mount** o **type** é definido como **volume**.
+
+## Comando - **docker run --name nginx -d -v myvolume:/app nginx**
+
+O comando **docker run --name nginx -d -v myvolume:/app nginx** tem como propósito criar um container apontando a pasta **/app** para o volume **myvolume**.
