@@ -45,3 +45,13 @@ O comando **docker exec nginx ls** só é possível execula-lo em um container e
 ## Comando - **docker exec -it nginx bash**
 
 O comando **docker exec nginx ls** só é possível execula-lo em um container em execução e seu propósito consiste em executar comandos dentro do container. Neste exemplo é executado o comando **bash** dentro do container ao qual o **nome** do container é **nginx**. Além disso, é importante colocar, especificamente neste caso, o **-it** para conseguir interagir com o **bash** dentro do container.
+
+## Comando - **docker run -d --name nginx -p 8080:80 -v "$(pwd)"/html:/usr/share/nginx/html nginx**
+
+A parte inicial do comando **docker run -d --name nginx -p 8080:80** consiste em executar um container em background espelhando a porta 80 para a porta 8080 do ser browser com o nome de nginx . Já a o segunta parte **-v $(pwd)"/html:usr/share/nginx/html nginx** cria ou faz referencia de uma pasta local com uma uma pasta interna no container. Neste caso, a pasta do container **/usr/share/nginx/html** está apontando para a pasta local **html**.
+
+Ps.: O comando **pwd** lista o diretório que o terminal está apontando no momento. Atém disso, o comando **-v** é um comando antigo do docker
+
+## Comando - **docker run -d --name nginx -p 8080:80 --mount type=bind,source="$(pwd)"/html,target=/usr/share/nginx/html nginx**
+
+Este comando produz basicamente o "mesmo" resultado que o comando de com ta tag **-v**.Contudo, a única diferença é que os repositórios referenciados devem obrigatóriamente existirem. Neste comando o **-v** é substituido pelo **--mount**, mas além disso é necessário setar explicitado o tipo de montagem a **source**, que seria o diretório local, e o **target** que seria o diretório do container.
